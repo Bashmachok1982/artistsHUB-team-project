@@ -25,7 +25,8 @@
 
     <title>Artisthub</title>
     <script type="module" crossorigin src="/artistsHUB-team-project/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/index-CJT8nXOW.css">
+    <link rel="modulepreload" crossorigin href="/artistsHUB-team-project/assets/vendor-CLb_lYsF.js">
+    <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/index-Dt-rrnLM.css">
   </head>
 
   <body>
@@ -39,9 +40,28 @@
   <div class="container"></div>
 </section>
 
-      <section class="artists" id="artists">
-    <div class="container"></div>
+      <!-- DMYTRO SERHIIENKO  -->
+<section class="artists-section" id="artists">
+  <div class="container">
+    <div class="artists-header">
+      <p class="artists-label">Artists</p>
+      <h2 class="artists-title">Explore Your New Favorite Artists</h2>
+    </div>
+
+    <ul id="artists-list" class="artists-grid"></ul>
+
+    <div class="load-more-wrapper">
+      <button id="load-more" class="btn-load-more">
+        Load More
+        <svg class="icon__down-arrow" width="14" height="14">
+          <use href="/artistsHUB-team-project/assets/icons-BqJrDZlk.svg#icon_artists_down"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 </section>
+<!-- DMYTRO SERHIIENKO  -->
+
       <section class="about-us" id="about-us">
   <div class="container"></div>
 </section>
@@ -58,7 +78,20 @@
 
 
     
-    
+    <!-- DMYTRO SERHIIENKO  -->
+<div class="artist-modal-backdrop is-hidden" data-artist-modal>
+  <div class="artist-modal">
+    <button class="artist-modal-close" data-artist-modal-close>
+      <svg width="24" height="24">
+        <use href="/artistsHUB-team-project/assets/icons-BqJrDZlk.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="artist-modal-content"></div>
+  </div>
+</div>
+<!-- DMYTRO SERHIIENKO  -->
+
     
 
   </body>
