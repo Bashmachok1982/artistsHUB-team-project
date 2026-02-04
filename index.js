@@ -56,7 +56,7 @@ import{a as v}from"./assets/vendor-CLb_lYsF.js";(function(){const t=document.cre
         ${e.map((t,s)=>{const i=t.title||t.strTrack||"Unknown Track",n=t.length||t.intDuration||t.strDuration,r=t.strMusicVid||t.youtubeUrl||H(t);let a="";return r?a=`
                 <a href="${r}" target="_blank" rel="noopener noreferrer" class="track-youtube-link">
                   <svg width="20" height="20">
-                    <use href="./img/icons.svg#icon-youtube"></use>
+                    <use href="/img/icons.svg#icon-youtube"></use>
                   </svg>
                 </a>
               `:a='<span class="track-no-link"></span>',`
