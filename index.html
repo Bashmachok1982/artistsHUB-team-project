@@ -26,7 +26,7 @@
     <title>Artisthub</title>
     <script type="module" crossorigin src="/artistsHUB-team-project/index.js"></script>
     <link rel="modulepreload" crossorigin href="/artistsHUB-team-project/assets/vendor-CLb_lYsF.js">
-    <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/index-DiwnhMyE.css">
+    <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/index-ZiYE-kui.css">
   </head>
 
   <body>
@@ -72,27 +72,31 @@
   <div class="container"></div>
 </section>
 
-      <!-- DMYTRO SERHIIENKO  -->
-<section class="artists-section" id="artists">
+      <section id="artists" class="artists">
   <div class="container">
-    <div class="artists-header">
-      <p class="artists-label">Artists</p>
-      <h2 class="artists-title">Explore Your New Favorite Artists</h2>
-    </div>
-
-    <ul id="artists-list" class="artists-grid"></ul>
-
-    <div class="load-more-wrapper">
-      <button id="load-more" class="btn-load-more">
-        Load More
-        <svg class="icon__down-arrow" width="14" height="14">
-          <use href="/artistsHUB-team-project/assets/icons-w_T_wvzx.svg#icon_artists_down"></use>
-        </svg>
-      </button>
+    <div class="artists__section">
+      <h2 class="artists__title">Artists</h2>
+      <p class="artists__subtitle">Explore Your New Favorite Artists</p>
+      <ul class="artists__list"></ul>
+      <div class="artists__load-more-wrapper">
+        <div class="artists__loader-wrapper">
+          <span class="loader visually-hidden"></span>
+        </div>
+        <button class="artists__load-more-btn">
+          Load More
+          <svg
+            class="artists__scroll-icon"
+            width="24"
+            height="24"
+            fill="#ffffff"
+          >
+            <use href="/artistsHUB-team-project/assets/icons-w_T_wvzx.svg#icon_artists_down"></use>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
-<!-- DMYTRO SERHIIENKO  -->
 
       <section class="about-us" id="about-us">
   <div class="container"></div>
@@ -240,17 +244,70 @@
   </nav>
 </div>
     <!-- DMYTRO SERHIIENKO  -->
-<div class="artist-modal-backdrop is-hidden" data-artist-modal>
-  <div class="artist-modal">
-    <button class="artist-modal-close" data-artist-modal-close>
-      <svg width="24" height="24">
-        <use href="/artistsHUB-team-project/assets/icons-w_T_wvzx.svg#icon-close"></use>
-      </svg>
-    </button>
-
-    <div class="artist-modal-content"></div>
+<div id="globalLoader" class="global-loader global-loader--hidden">
+  <div id="artistDataLoader" class="artist-loader artist-loader--hidden">
+    <div class="artist-loader__spinner"></div>
   </div>
 </div>
+<div
+  class="modal modal--hidden open-artist-modal"
+  id="artistModal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="artistModalTitle"
+>
+  <div class="modal__content container" role="document">
+    <button
+      type="button"
+      class="modal__close-btn"
+      aria-label="Close the window"
+      title="Close the window"
+    ></button>
+
+    <section class="modal__artist">
+      <h2 id="artistModalTitle" class="modal__artist-name"></h2>
+      <div class="modal__artist-container">
+        <div class="modal__artist-header">
+          <img
+            src="/img/artists.svg"
+            alt="Artist photo"
+            class="modal__artist-thumb"
+          />
+        </div>
+        <ul class="modal__artist-info">
+          <li class="modal__info-item modal__info-years">
+            <h4 class="modal__info-label">Years active:</h4>
+            <p class="modal__info-value modal__artist-years"></p>
+          </li>
+          <li class="modal__info-item modal__info-gender">
+            <h4 class="modal__info-label">Sex:</h4>
+            <span class="modal__info-value modal__artist-gender"></span>
+          </li>
+          <li class="modal__info-item modal__info-members">
+            <h4 class="modal__info-label">Members:</h4>
+            <span class="modal__info-value modal__artist-members"></span>
+          </li>
+          <li class="modal__info-item modal__info-country">
+            <h4 class="modal__info-label">Country:</h4>
+            <span class="modal__info-value modal__artist-country"></span>
+          </li>
+          <li class="modal__info-item modal__info-bio">
+            <h4 class="modal__info-title">Biography:</h4>
+            <p class="modal__info-description modal__artist-bio"></p>
+          </li>
+          <li class="modal__info-item modal__info-genres">
+            <h4 class="modal__info-genres-title visually-hidden"></h4>
+            <div class="modal__genres-list modal__artist-genres"></div>
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="modal__albums-title">Albums</h2>
+      <div class="modal__albums-container"></div>
+    </section>
+  </div>
+</div>
+
 <!-- DMYTRO SERHIIENKO  -->
 
     <section class="feedback" id="feedback">
