@@ -18,8 +18,11 @@ const STEP = 8;
 
 async function initArtists() {
   try {
+    loadMoreBtn.style.display = 'none';
     showLoader();
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(BASE_URL, {
+      params: { limit: 20 },
+    });
     const data = response.data;
 
     allArtists = Array.isArray(data)
@@ -47,6 +50,8 @@ function loadMore() {
 
   if (displayedCount >= allArtists.length) {
     loadMoreBtn.style.display = 'none';
+  } else {
+    loadMoreBtn.style.display = 'block';
   }
 }
 
