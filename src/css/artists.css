@@ -1,73 +1,56 @@
-/* DMYTRO SERHIIENKO  */
-.artists-section {
+.artists {
   padding: 64px 0;
 }
-
-.artists-header {
-  margin-bottom: 32px;
-}
-
-.artists-label {
+.artists__title {
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
   margin-bottom: 16px;
 }
-.artists-title {
+.artists__subtitle {
+  display: flex;
+  width: 288px;
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
   font-size: 44px;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: #fff;
+  margin-bottom: 32px;
 }
 
-.artists-grid {
-  display: grid;
-  gap: 64px;
-  grid-template-columns: 1fr;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.artist-card__photo {
+.artists__card-image {
   border-radius: 16px;
-  width: 100%;
+  width: 288px;
   height: 177px;
   object-fit: cover;
   object-position: top;
-  display: block;
   margin-bottom: 24px;
 }
-
-.artist-card__genres {
+.artists__card-genre {
   display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.genre-tag {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 4px 10px;
-  height: 32px;
+  background: rgba(255, 255, 255, 0);
 
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
-  color: #fff;
-
-  background: transparent;
-  display: inline-flex;
+  color: #ffffff;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
-.artist-card__name {
+.artists__card-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 288px;
+  margin-bottom: 16px;
+}
+.artists__card-name {
   font-weight: 700;
   font-size: 32px;
   line-height: 1.3;
@@ -75,43 +58,47 @@
   color: #fff;
   margin-bottom: 8px;
 }
-
-.artist-card__bio {
+.artists__card-description {
+  width: 288px;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-
   margin-bottom: 24px;
 }
+.artists__card-btn {
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5px 0;
 
-.artist-card__link {
+  background-color: #060307;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
-  background: transparent;
+  gap: 8px;
+}
+.artists__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  margin-bottom: 32px;
 }
 
-.artist-card__link .icon-learn-more {
+.artists__card-btn-icon {
   fill: #fff;
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 4px;
 }
 
-.btn-load-more {
+.artists__load-more-btn {
+  display: flex;
   border-radius: 12px;
-  padding: 10px 24px;
-  width: 288px;
-  height: 47px;
+  border: none;
+  padding: 11px 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 
   box-shadow:
     0 1px 2px 0 rgba(6, 3, 7, 0.05),
@@ -119,92 +106,239 @@
     inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background: #764191;
+  background-color: #764191;
 
   font-weight: 500;
   font-size: 18px;
   line-height: 1.5;
-  color: #fff;
+  color: #ffffff;
+  position: relative;
+}
 
+.artists__load-more-wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
 }
 
-.btn-load-more:hover {
-  opacity: 0.6;
-}
-
-.icon__down-arrow {
-  fill: #fff;
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 8px;
-}
-
-.load-more-wrapper {
+.artists__card-btn {
   display: flex;
+  border: none;
+  align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  padding: 1.5px 0;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  fill: #fff;
+  gap: 8px;
 }
 
-/** TAB */
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
+.artists__card-btn:hover {
+  color: #764191;
+  fill: #764191;
+}
+
+@media screen and (min-width: 768px) {
+  .artists__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 16px;
   }
 
-  .artists-grid {
-    grid-template-columns: repeat(1, 1fr);
+  .artists__subtitle {
+    display: flex;
+    width: 704px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    margin-bottom: 32px;
   }
 
-  .artist-card__photo {
+  .artists__card-image {
+    border-radius: 16px;
+    width: 704px;
     height: 432px;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+  .artists__card-genre {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0);
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
   }
 
-  .artists-grid {
+  .artists__card-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 704px;
+    margin-bottom: 16px;
+  }
+  .artists__card-name {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .artists__card-description {
+    width: 704px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .artists__card-btn {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5px 0;
+
+    background-color: #060307;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    gap: 8px;
+  }
+  .artists__list {
+    display: flex;
+    flex-wrap: wrap;
     gap: 32px;
+    margin-bottom: 32px;
   }
+  .artists__load-more-btn {
+    display: flex;
+    border-radius: 12px;
+    border: none;
+    padding: 11px 109px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
 
-  .btn-load-more {
-    width: 340px;
+    box-shadow:
+      0 1px 2px 0 rgba(6, 3, 7, 0.05),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background-color: #764191;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ffffff;
+    position: relative;
+  }
+  .artists__load-more-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-/* DESC */
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1440px;
+@media screen and (min-width: 1440px) {
+  .artists {
+    padding: 112px 0;
   }
-
-  .artists-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
-  .artists-section {
-    padding-top: 112px;
-    padding-bottom: 112px;
-  }
-
-  .artists-header {
+  .artists__subtitle {
+    display: flex;
+    width: 523px;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #ffffff;
     margin-bottom: 80px;
   }
 
-  .artists-title {
-    font-size: 60px;
-    max-width: 523px;
+  .artists__card {
+    width: 640px;
+  }
+  .artists__card-image {
+    border-radius: 16px;
+    width: 640px;
+    height: 393px;
   }
 
-  .btn-load-more {
-    width: 170px;
+  .artists__card-description {
+    width: 640px;
   }
 
-  .load-more-wrapper {
-    margin-top: 64px;
+  .artists__list {
+    margin-bottom: 64px;
+  }
+
+  .artists__load-more-btn {
+    padding: 10px 24px;
+  }
+  .artists__load-more-wrapper {
+    align-items: center;
+    justify-content: center;
   }
 }
-/* DMYTRO SERHIIENKO  */
+
+.artists__loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.loader {
+  border: 2px solid;
+  border-color: transparent #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: none;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Лоадер Load more */
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 24px solid;
+  border-color: transparent rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

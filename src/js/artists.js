@@ -1,109 +1,134 @@
-/* DMYTRO SERHIIENKO  */
-
 import axios from 'axios';
-import { openArtistModal } from './artist-details-modal.js';
-import { showLoader, hideLoader } from './artists-loader.js';
+import { openArtistModal } from './artist-details-modal';
 
-const refs = {
-  artistsList: document.querySelector('#artists-list'),
-  loadMoreBtn: document.querySelector('#load-more'),
-};
-
-const { artistsList, loadMoreBtn } = refs;
-
-const BASE_URL = 'https://sound-wave.b.goit.study/api/artists';
-let allArtists = [];
-let displayedCount = 0;
-const STEP = 8;
-
-async function initArtists() {
+async function fetchArtists(page = 1) {
   try {
-    loadMoreBtn.style.display = 'none';
-    showLoader();
-    const response = await axios.get(BASE_URL, {
-      params: { limit: 20 },
-    });
-    const data = response.data;
-
-    allArtists = Array.isArray(data)
-      ? data
-      : data.results || data.data || data.artists || [];
-
-    loadMore();
-    hideLoader();
+    const response = await axios.get(
+      `https://sound-wave.b.goit.study/api/artists?limit=8&page=${page}`
+    );
+    return response.data.artists;
   } catch (error) {
-    console.error(`Error fetching artists: ${error.message}`);
-    hideLoader();
-    showErrorMessage();
+    console.log(error.message);
   }
 }
 
-function showErrorMessage() {
-  artistsList.innerHTML =
-    '<p style="color: white; text-align: center;">Не вдалося завантажити артистів❗️</p>';
+const artistsList = document.querySelector('.artists__list');
+
+let currentPage = 0;
+
+renderArtists();
+
+async function renderArtists() {
+  const artists = await fetchArtists();
+  const markup = generateArtistsMarkup(artists);
+  artistsList.innerHTML = markup;
+  currentPage = 1;
 }
 
-function loadMore() {
-  const nextBatch = allArtists.slice(displayedCount, displayedCount + STEP);
-  renderArtists(nextBatch);
-  displayedCount += nextBatch.length;
-
-  if (displayedCount >= allArtists.length) {
+// Кнопка loadMore
+const loadMoreBtn = document.querySelector('.artists__load-more-btn');
+loadMoreBtn.addEventListener('click', loadMoreArtists);
+async function loadMoreArtists() {
+  try {
+    toggleLoader(true);
     loadMoreBtn.style.display = 'none';
+    currentPage += 1;
+    const artists = await fetchArtists(currentPage);
+    if (artists.length === 0) {
+      loadMoreBtn.style.display = 'none';
+    }
+
+    const markup = generateArtistsMarkup(artists);
+    const beforeCount = artistsList.children.length;
+    artistsList.insertAdjacentHTML('beforeend', markup);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    toggleLoader(false);
+    loadMoreBtn.style.display = 'flex';
+  }
+}
+
+function truncateText(text, maxLength) {
+  // якщо text undefined, розвертаємо...
+  if (typeof text !== 'string') {
+    return '';
+  }
+  // різна довжина
+  const screenWidth = window.innerWidth;
+  if (screenWidth < 768) {
+    maxLength = 60;
+  } else if (screenWidth < 1440) {
+    maxLength = 160;
   } else {
-    loadMoreBtn.style.display = 'block';
+    maxLength = 144;
+  }
+
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + '...';
+  }
+  return text;
+}
+function sanitizeText(text) {
+  return text.replace(/[,/]/g, ' ');
+}
+
+// розмітка
+function generateArtistsMarkup(arr) {
+  return (
+    arr
+      .map(
+        ({ _id, genres, strArtist, strArtistThumb, strBiographyEN }) =>
+          `
+      <li class="artists__card">
+
+        <img class="artists__card-image" src="${strArtistThumb}" alt="${strArtist}"/>
+
+        <ul class="artists__card-genres">
+        ${genres
+          .map(
+            genre =>
+              `<li class="artists__card-genre">${sanitizeText(genre)}</li>`
+          )
+          .join('')}
+        </ul>
+        <p class="artists__card-name">${strArtist}</p>
+        <p class="artists__card-description">${truncateText(strBiographyEN, 144)}</p>
+       <button class="artists__card-btn open-artist-modal" data-artist-id="${_id}">
+       Learn More
+        <svg class="artists__card-btn-icon" width="24" height="24" >
+        <use href="./img/icons.svg#icon-caret-right"></use>
+        </svg>
+       </button>
+     </li>
+      `
+      )
+      .join('') || ''
+  );
+}
+
+// відкриття модалки
+artistsList.addEventListener('click', handleArtistCardClick);
+function handleArtistCardClick(event) {
+  const targetButton = event.target.closest('.open-artist-modal');
+
+  if (targetButton) {
+    // Ай-ді артиста
+    const artistId = targetButton.dataset.artistId;
+    if (artistId) {
+      openArtistModal(artistId);
+    } else {
+      console.error('Artist ID not found 😱.');
+    }
   }
 }
 
-function renderGenres(artist) {
-  if (artist.genres && artist.genres.length > 0) {
-    return artist.genres
-      .map(genre => `<span class="genre-tag">${genre}</span>`)
-      .join('');
+// LOADER ВКЛЮЧИТИ/ВИКЛЮЧИТИ
+const loader = document.querySelector('.loader');
+function toggleLoader(show) {
+  if (show) {
+    loader.style.display = 'inline-block';
+  } else {
+    loader.style.display = 'none';
   }
-  return `<span class="genre-tag">${artist.strGenre || 'Music'}</span>`;
 }
-
-function getArtistBio(artist) {
-  return artist.strBiographyEN || artist.bio || 'No biography available';
-}
-
-function getArtistId(artist) {
-  return artist._id || artist.idArtist;
-}
-
-function renderArtists(artists) {
-  const markup = artists
-    .map(
-      artist => `
-      <li class="artist-card" data-id="${getArtistId(artist)}">
-        <img src="${artist.strArtistThumb}" alt="${artist.strArtist}" class="artist-card__photo" loading="lazy">
-        <div class="artist-card__genres">${renderGenres(artist)}</div>
-        <h3 class="artist-card__name">${artist.strArtist}</h3>
-        <p class="artist-card__bio">${getArtistBio(artist)}</p>
-        <button type="button" class="artist-card__link js-learn-more">
-          Learn More 
-          <svg class="icon-learn-more" width="16" height="16">
-            <use href="${import.meta.env.BASE_URL}img/icons.svg#icon-caret-right"></use>
-          </svg>
-        </button>
-      </li>
-    `
-    )
-    .join('');
-  artistsList.insertAdjacentHTML('beforeend', markup);
-}
-
-loadMoreBtn.addEventListener('click', loadMore);
-
-artistsList.addEventListener('click', event => {
-  const learnMoreBtn = event.target.closest('.js-learn-more');
-  if (learnMoreBtn) {
-    const card = event.target.closest('.artist-card');
-    openArtistModal(card.dataset.id);
-  }
-});
-
-initArtists();
-
-/* DMYTRO SERHIIENKO  */
