@@ -1,6 +1,6 @@
 import{a as v}from"./assets/vendor-CLb_lYsF.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))i(n);new MutationObserver(n=>{for(const r of n)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function s(n){const r={};return n.integrity&&(r.integrity=n.integrity),n.referrerPolicy&&(r.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?r.credentials="include":n.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(n){if(n.ep)return;n.ep=!0;const r=s(n);fetch(n.href,r)}})();function $(){const e=document.createElement("div");e.classList.add("artist-loader"),e.innerHTML=`
     <div class="artist-loader-spinner"></div>
-  `,e.setAttribute("data-loader",""),document.body.appendChild(e)}function u(){const e=document.querySelector("[data-loader]");e&&e.remove()}const M="https://sound-wave.b.goit.study/api",o={backdrop:document.querySelector("[data-artist-modal]"),closeBtn:null,content:null};let y=[];document.addEventListener("DOMContentLoaded",()=>{o.closeBtn=document.querySelector("[data-artist-modal-close]"),o.content=document.querySelector(".artist-modal-content"),o.closeBtn&&o.closeBtn.addEventListener("click",f),o.backdrop&&o.backdrop.addEventListener("click",T)});function _(e){$(),o.backdrop.classList.remove("is-hidden"),document.body.style.overflow="hidden",Y(e),document.addEventListener("keydown",L)}function f(){o.backdrop.classList.add("is-hidden"),document.body.style.overflow="",B(),document.removeEventListener("keydown",L),o.content&&(o.content.innerHTML="")}function T(e){e.target===o.backdrop&&f()}function L(e){e.key==="Escape"&&f()}function B(){y.forEach(({element:e,event:t,handler:s})=>{e.removeEventListener(t,s)}),y=[]}async function Y(e){try{const s=(await v.get(`${M}/artists/${e}/albums`)).data;j(s),u()}catch(t){console.error("Error fetching artist details:",t),u(),C()}}function S(e){if(!e)return"Information missing";const t=e.begin,s=e.end;if(!t&&!s)return"Information missing";if(t&&!s)return`${typeof t=="number"?t:new Date(t).getFullYear()}-present`;if(t&&s){const i=typeof t=="number"?t:new Date(t).getFullYear(),n=typeof s=="number"?s:new Date(s).getFullYear();return`${i}-${n}`}return"Information missing"}function U(e){if(!e)return"--";if(typeof e=="string"&&e.includes(":"))return e;const t=typeof e=="string"?parseInt(e,10):e,s=t>1e4?Math.floor(t/1e3):t,i=Math.floor(s/60),n=s%60;return`${i}:${n.toString().padStart(2,"0")}`}function H(e){if(e.youtubeUrl)return e.youtubeUrl;const t=e.artistName||"",s=e.title||e.strTrack||"";return s?`https://www.youtube.com/results?search_query=${encodeURIComponent(`${t} ${s}`.trim())}`:null}function N(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function j(e){const t=e.strArtist||e.name||"Unknown Artist",s=e.strArtistThumb||e.image||"/img/placeholder.jpg",i=e.strCountry||e.country||"Unknown",n=e.strBiographyEN||e.biography||e.bio||"No biography available.";e.strType||e.type;const r=e.strGender||e.gender,a=e.intMembers||e.members,w={begin:e.intBornYear||e.intFormedYear||e.bornYear||null,end:e.intDiedYear||e.endYear||null};let c=[];e.genres&&Array.isArray(e.genres)?c=e.genres:e.strGenre&&(c=[e.strGenre]);const m=e.albumsList||e.albums||[];let h="";a&&a!=="0"&&a>0&&(h=`<div class="artist-info-item">
+  `,e.setAttribute("data-loader",""),document.body.appendChild(e)}function u(){const e=document.querySelector("[data-loader]");e&&e.remove()}const M="https://sound-wave.b.goit.study/api",o={backdrop:document.querySelector("[data-artist-modal]"),closeBtn:null,content:null};let y=[];document.addEventListener("DOMContentLoaded",()=>{o.closeBtn=document.querySelector("[data-artist-modal-close]"),o.content=document.querySelector(".artist-modal-content"),o.closeBtn&&o.closeBtn.addEventListener("click",f),o.backdrop&&o.backdrop.addEventListener("click",T)});function _(e){$(),o.backdrop.classList.remove("is-hidden"),document.body.style.overflow="hidden",U(e),document.addEventListener("keydown",L)}function f(){o.backdrop.classList.add("is-hidden"),document.body.style.overflow="",B(),document.removeEventListener("keydown",L),o.content&&(o.content.innerHTML="")}function T(e){e.target===o.backdrop&&f()}function L(e){e.key==="Escape"&&f()}function B(){y.forEach(({element:e,event:t,handler:s})=>{e.removeEventListener(t,s)}),y=[]}async function U(e){try{const s=(await v.get(`${M}/artists/${e}/albums`)).data;N(s),u()}catch(t){console.error("Error fetching artist details:",t),u(),C()}}function Y(e){if(!e)return"Information missing";const t=e.begin,s=e.end;if(!t&&!s)return"Information missing";if(t&&!s)return`${typeof t=="number"?t:new Date(t).getFullYear()}-present`;if(t&&s){const i=typeof t=="number"?t:new Date(t).getFullYear(),n=typeof s=="number"?s:new Date(s).getFullYear();return`${i}-${n}`}return"Information missing"}function H(e){if(!e)return"--";if(typeof e=="string"&&e.includes(":"))return e;const t=typeof e=="string"?parseInt(e,10):e,s=t>1e4?Math.floor(t/1e3):t,i=Math.floor(s/60),n=s%60;return`${i}:${n.toString().padStart(2,"0")}`}function S(e){if(e.youtubeUrl)return e.youtubeUrl;const t=e.artistName||"",s=e.title||e.strTrack||"";return s?`https://www.youtube.com/results?search_query=${encodeURIComponent(`${t} ${s}`.trim())}`:null}function j(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function N(e){const t=e.strArtist||e.name||"Unknown Artist",s=e.strArtistThumb||e.image||"/img/placeholder.jpg",i=e.strCountry||e.country||"Unknown",n=e.strBiographyEN||e.biography||e.bio||"No biography available.";e.strType||e.type;const r=e.strGender||e.gender,a=e.intMembers||e.members,w={begin:e.intBornYear||e.intFormedYear||e.bornYear||null,end:e.intDiedYear||e.endYear||null};let c=[];e.genres&&Array.isArray(e.genres)?c=e.genres:e.strGenre&&(c=[e.strGenre]);const m=e.albumsList||e.albums||[];let h="";a&&a!=="0"&&a>0&&(h=`<div class="artist-info-item">
          <span class="artist-info-label">Members</span>
          <span class="artist-info-value">${a}</span>
        </div>`);let b="";r&&(b=`<div class="artist-info-item">
@@ -15,7 +15,7 @@ import{a as v}from"./assets/vendor-CLb_lYsF.js";(function(){const t=document.cre
     <div class="artist-info">
       <div class="artist-info-item">
         <span class="artist-info-label">Years active</span>
-        <span class="artist-info-value">${S(w)}</span>
+        <span class="artist-info-value">${Y(w)}</span>
       </div>
       
       ${b}
@@ -53,16 +53,16 @@ import{a as v}from"./assets/vendor-CLb_lYsF.js";(function(){const t=document.cre
         <span class="track-header-action">Link</span>
       </div>
       <div class="tracks-list">
-        ${e.map((t,s)=>{const i=t.title||t.strTrack||"Unknown Track",n=t.length||t.intDuration||t.strDuration,r=t.strMusicVid||t.youtubeUrl||H(t);let a="";return r?a=`
+        ${e.map((t,s)=>{const i=t.title||t.strTrack||"Unknown Track",n=t.length||t.intDuration||t.strDuration,r=t.strMusicVid||t.youtubeUrl||S(t);let a="";return r?a=`
                 <a href="${r}" target="_blank" rel="noopener noreferrer" class="track-youtube-link">
                   <svg width="20" height="20">
-                    <use href="/img/icons.svg#icon-youtube"></use>
+                    <use href="/artistsHUB-team-project/img/icons.svg#icon-youtube"></use>
                   </svg>
                 </a>
               `:a='<span class="track-no-link"></span>',`
             <div class="track-item" data-track-index="${s}">
-              <span class="track-name">${N(i)}</span>
-              <span class="track-time">${U(n)}</span>
+              <span class="track-name">${j(i)}</span>
+              <span class="track-time">${H(n)}</span>
               ${a}
             </div>
           `}).join("")}
@@ -81,7 +81,7 @@ import{a as v}from"./assets/vendor-CLb_lYsF.js";(function(){const t=document.cre
         <button type="button" class="artist-card__link js-learn-more">
           Learn More 
           <svg class="icon-learn-more" width="16" height="16">
-            <use href="./img/icons.svg#icon-caret-right"></use>
+            <use href="/artistsHUB-team-project/img/icons.svg#icon-caret-right"></use>
           </svg>
         </button>
       </li>
