@@ -62,6 +62,26 @@
 .swiper-pagination-bullet-active {
   background: #764191;
 }
+.feedback-btn {
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px;
+  height: 47px;
+  box-shadow:
+    0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #764191;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin-top: 16px;
+  padding: 10px 78px;
+  text-align: center;
+}
 
 @media screen and (min-width: 768px) {
   .feedback {
@@ -69,6 +89,15 @@
   }
   .text-feedback {
     font-size: 26px;
+  }
+  .feedback-btn {
+    border-radius: 12px;
+    padding: 10px 24px;
+    width: 158px;
+    height: 47px;
+    margin-top: 16px;
+    padding: 10px 14px;
+    text-align: center;
   }
 }
 
@@ -78,5 +107,24 @@
   }
   .text-feedback {
     font-size: 32px;
+  }
+  .feedback-btn {
+    border-radius: 12px;
+    padding: 10px 24px;
+    width: 177px;
+    height: 47px;
+    margin-top: 80px;
+    padding: 10px 24px;
+    text-align: center;
+  }
+  .feedback-btn :hover {
+    box-shadow:
+      0 1px 2px 0 rgba(6, 3, 7, 0.05),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background: #764191;
+    opacity: 0.6;
   }
 }
