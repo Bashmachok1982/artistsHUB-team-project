@@ -1,0 +1,116 @@
+.hero {
+    background-color: #23132b;
+background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    padding-top: 128px;
+        padding-bottom: 449px;
+
+        
+}
+
+.dark-bg {
+    max-width: 100%;
+    /* background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url(../img/hero/mobile/hero-mobile-1x.webp); */
+}
+
+.container {}
+
+.hero-title {
+    font-family: "Epilogue", sans-serif;
+    font-weight: 700;
+        font-size: 48px;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: left;
+}
+
+.hero-subtitle {
+    font-weight: 400;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #fff;
+        text-align: left;
+        margin: 0 auto 24px;
+}
+
+.hero-btn {
+    font-family: inherit;
+    font-weight: 500;
+        font-size: 18px;
+        line-height: 1.5;
+        color: #fff;
+        border-radius: 12px;
+        padding: 10px 24px;
+        box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+            background-color: #764191;
+            margin: 0 auto;
+           min-width: 288px;
+                height: 47px;
+                border: none;
+                text-align: center;
+}
+
+.hero-btn:hover {
+    opacity: 0.6;
+}
+
+.hero-btn-icon {
+    margin-left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+.hero {
+    padding-top: 104px;
+    padding-bottom: 664px;
+}
+
+    .container {}
+
+    .hero-title {
+        margin-bottom: 24px;
+        max-width: 624px;
+        margin-left: 0;
+    }
+
+    .hero-subtitle {
+            font-size: 20px;
+            max-width: 624px;
+            margin-left: 0;
+    }
+
+    .hero-btn {
+        min-width: 246px;
+        margin-left: 0;
+    }
+
+    .hero-btn-icon {}
+}
+
+@media screen and (min-width: 1440px) {
+.hero {
+    padding-top: 72px;
+    padding-bottom: 215px;
+}
+
+    .container {}
+
+    .hero-title {
+        font-size: 84px;
+        max-width: 640px;
+    }
+
+    .hero-subtitle {
+        max-width: 640px;
+    }
+
+    .hero-btn {
+        width: 206px;
+    }
+
+    .hero-btn-icon {}
+}
