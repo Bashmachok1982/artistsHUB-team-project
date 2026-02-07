@@ -1,19 +1,14 @@
 const openBtn = document.querySelector('[data-menu-open]');
 const closeBtn = document.querySelector('[data-menu-close]');
 const menu = document.querySelector('[data-menu]');
-const links = document.querySelectorAll('.mobile-menu__link');
+const links = document.querySelectorAll('.mobile-link');
 
-if (openBtn && menu) {
-  openBtn.addEventListener('click', () => {
-    menu.classList.add('is-open');
-    openBtn.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
-  });
-}
+openBtn?.addEventListener('click', () => {
+  menu.classList.add('is-open');
+  document.body.classList.add('menu-open');
+});
 
-if (closeBtn) {
-  closeBtn.addEventListener('click', closeMenu);
-}
+closeBtn?.addEventListener('click', closeMenu);
 
 links.forEach(link => {
   link.addEventListener('click', closeMenu);
@@ -21,6 +16,5 @@ links.forEach(link => {
 
 function closeMenu() {
   menu.classList.remove('is-open');
-  openBtn.classList.remove('is-active');
-  document.body.style.overflow = '';
+  document.body.classList.remove('menu-open');
 }
