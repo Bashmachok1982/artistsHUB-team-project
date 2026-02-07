@@ -55,11 +55,25 @@
 .mobile-link:hover,
 .mobile-link:focus {
   color: #c5c5ff;
+  text-decoration: none;
 }
 
-/* Desktop */
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: none;
-  }
+.mobile-link {
+  position: relative;
+}
+
+.mobile-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.mobile-link:hover::after,
+.mobile-link:focus::after {
+  width: 100%;
 }

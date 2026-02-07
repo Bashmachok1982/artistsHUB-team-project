@@ -30,6 +30,7 @@
 .header-link:hover,
 .header-link:focus {
   color: #c5c5ff;
+  text-decoration: none;
 }
 
 .mob-menu-btn {
@@ -48,7 +49,6 @@
   display: block;
 }
 
-/* Tablet and up */
 @media (min-width: 768px) {
   .header-menu {
     display: flex;
@@ -67,9 +67,27 @@
 .mob-menu-btn svg {
   fill: #fff;
 }
+.header-link {
+  position: relative;
+}
 
-/* Tablet+ */
-@media (min-width: 768px) {
+.header-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.header-link:hover::after,
+.header-link:focus::after {
+  width: 100%;
+}
+
+@media (min-width: 1440px) {
   .header-menu {
     display: flex;
   }
