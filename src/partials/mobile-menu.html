@@ -1,28 +1,32 @@
 <div class="mobile-menu" data-menu>
-  <div class="mobile-menu__header">
-    <a href="#home" class="mobile-menu__logo">
+  <div class="mobile-menu-header">
+    <a href="#home" class="logo-link logo">
       <img
         src="./img/logo-header.webp"
-        alt="ArtistsHub logo"
-        class="mobile-menu__logo-img"
+        alt="Artists Hub logo"
+        width="119"
+        height="51"
       />
     </a>
 
+    <!-- Close button -->
     <button
       type="button"
-      class="mobile-menu__close"
-      aria-label="Close menu"
+      class="menu-close-btn"
+      aria-label="Close mobile menu"
       data-menu-close
     >
-      ✕
+      <svg class="close-icon" width="32" height="32" aria-hidden="true">
+        <use href="./img/icons.svg#icon-close"></use>
+      </svg>
     </button>
   </div>
 
-  <nav class="mobile-menu__nav">
-    <ul class="mobile-menu__list">
-      <li><a href="#artists" class="mobile-menu__link">Artists</a></li>
-      <li><a href="#about-us" class="mobile-menu__link">About Us</a></li>
-      <li><a href="#reviews" class="mobile-menu__link">Reviews</a></li>
+  <nav class="mobile-nav">
+    <ul class="mobile-menu-list">
+      <li><a href="#artists" class="mobile-link">Artists</a></li>
+      <li><a href="#about-us" class="mobile-link">About Us</a></li>
+      <li><a href="#reviews" class="mobile-link">Reviews</a></li>
     </ul>
   </nav>
 </div>

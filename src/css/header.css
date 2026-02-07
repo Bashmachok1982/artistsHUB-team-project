@@ -1,109 +1,80 @@
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 64px;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 100;
+  z-index: 1000;
+  background: #060307;
+  padding: 12px 0;
 }
 
-.header__container {
-  height: 100%;
-  padding: 0 16px;
+.header-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Logo */
-.header__logo {
-  display: flex;
-  align-items: center;
-}
-
-.header__logo-img {
-  width: 120px;   /* ← як напис ArtistsHub */
-  height: 24px;
-  object-fit: contain;
-}
-
-/* Navigation */
-.header__nav {
+.header-menu {
   display: none;
-}
-
-.header__nav-list {
-  display: flex;
   gap: 32px;
 }
 
-.header__nav-link {
-  font-family: 'IBM Plex Sans', sans-serif;
+.header-link {
   font-size: 18px;
   line-height: 1.5;
-  color: #fff;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
 }
 
-/* Burger */
-.header__burger {
-  width: 24px;
-  height: 18px;
-  position: relative;
+.header-link:hover,
+.header-link:focus {
+  color: #c5c5ff;
+}
+
+.mob-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   background: transparent;
+  border: none;
 }
 
-.header__burger span {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  transition: transform 250ms ease, opacity 250ms ease;
+.menu-icon {
+  fill: #ffffff;
+  display: block;
 }
 
-.header__burger span:nth-child(1) {
-  top: 0;
-}
-
-.header__burger span:nth-child(2) {
-  top: 8px;
-}
-
-.header__burger span:nth-child(3) {
-  bottom: 0;
-}
-
-/* Burger → cross */
-.header__burger.is-active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.header__burger.is-active span:nth-child(2) {
-  opacity: 0;
-}
-
-.header__burger.is-active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/* Tablet */
-@media screen and (min-width: 768px) {
-  .header__container {
-    padding: 0 32px;
+/* Tablet and up */
+@media (min-width: 768px) {
+  .header-menu {
+    display: flex;
   }
 
-  .header__nav {
-    display: block;
-  }
-
-  .header__burger {
+  .mob-menu-btn {
     display: none;
   }
 }
 
-/* Desktop */
-@media screen and (min-width: 1440px) {
-  .header__container {
-    padding: 0 64px;
+.mob-menu-btn {
+  background: transparent;
+  border: none;
+}
+
+.mob-menu-btn svg {
+  fill: #fff;
+}
+
+/* Tablet+ */
+@media (min-width: 768px) {
+  .header-menu {
+    display: flex;
+  }
+
+  .mob-menu-btn {
+    display: none;
   }
 }
