@@ -26,8 +26,8 @@
       rel="preload"
       as="image"
       imagesrcset="
-        ./img/hero/hero-mobile-1x.webp 280w,
-        ./img/hero/hero-mobile-2x.webp 560w
+        ./img/hero/mobile/hero-mobile-1x.webp 280w,
+        ./img/hero/mobile/hero-mobile-2x.webp 560w
       "
       imagesizes="280px"
       media="(max-width: 767px)"
@@ -38,8 +38,8 @@
       rel="preload"
       as="image"
       imagesrcset="
-        ./img/hero/hero-tablet-1x.webp 704w,
-        ./img/hero/hero-tablet-2x.webp 1408w
+        ./img/hero/tablet/hero-tablet-1x.webp 704w,
+        ./img/hero/tablet/hero-tablet-2x.webp 1408w
       "
       imagesizes="704px"
       media="(min-width: 768px) and (max-width: 1439px)"
@@ -50,8 +50,8 @@
       rel="preload"
       as="image"
       imagesrcset="
-        ./img/hero/hero-desktop-1x.webp 640w,
-        ./img/hero/hero-desktop-2x.webp 1280w
+        ./img/hero/desktop/hero-desktop-1x.webp 640w,
+        ./img/hero/desktop/hero-desktop-2x.webp 1280w
       "
       imagesizes="640px"
       media="(min-width: 1440px)"
@@ -61,7 +61,7 @@
 
     <title>Artisthub</title>
     <script type="module" crossorigin src="/artistsHUB-team-project/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/artistsHUB-team-project/assets/vendor-BTm5DXRj.js">
+    <link rel="modulepreload" crossorigin href="/artistsHUB-team-project/assets/vendor-03jR-5mc.js">
     <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/vendor-BCNh8ils.css">
     <link rel="stylesheet" crossorigin href="/artistsHUB-team-project/assets/index-CQcRfyOy.css">
   </head>
@@ -197,35 +197,34 @@
   <h2 class="visually-hidden">Feedbacks our visitors</h2>
 
   <div class="container" id="feedback">
-
     <div class="feedback">
-
-
       <div class="swiper feedback-slider">
         <div class="swiper-wrapper" id="feedback-container"></div>
-        
-        <button class="swiper-button-prev custom-arrow">
 
+        <button
+          class="swiper-button-prev custom-arrow"
+          aria-label="Попередній відгук"
+        >
           <svg class="feedback-icon">
             <use href="/artistsHUB-team-project/assets/icons-Du7oJ6Ni.svg#icon-arrow-left"></use>
           </svg>
         </button>
-        <button class="swiper-button-next custom-arrow">
+        <button
+          class="swiper-button-next custom-arrow"
+          aria-label="Наступний відгук"
+        >
           <svg class="feedback-icon">
             <use href="/artistsHUB-team-project/assets/icons-Du7oJ6Ni.svg#icon-arrow-right"></use>
-        </svg>
-        </button>        
-        <div class="swiper-pagination"></div>        
-
-      
-        
-
+          </svg>
+        </button>
+        <div class="swiper-pagination"></div>
       </div>
-      <button type="submit" class="feedback-btn">Leave feedback</button>
+      <button type="submit" class="feedback-btn" aria-label="Залишити відгук">
+        Leave feedback
+      </button>
     </div>
-    </div>
+  </div>
 </section>
-
 
     </main>
 
