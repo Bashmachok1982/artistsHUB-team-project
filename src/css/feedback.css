@@ -39,7 +39,7 @@
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;  
+  font-size: 18px;
   align-items: center;
 }
 
@@ -53,7 +53,9 @@
   width: 12px;
   height: 12px;
   background-color: #eee !important;
-  transition: background-color 0.3s, transform 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -75,9 +77,6 @@
   background: var(--color-scheme-1-foreground);
 }
 
-.custom-arrow {
-  visibility: hidden;
-}
 .feedback-text {
   font-size: 18px;
 }
@@ -92,8 +91,10 @@
   padding: 10px 24px;
   width: 288px;
   height: 47px;
-  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+  box-shadow:
+    0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background: #764191;
@@ -108,6 +109,11 @@
 .feedback-textarea {
   resize: none;
   height: 250px;
+}
+@media screen and (max-width: 767px) {
+  .custom-arrow {
+    visibility: hidden;
+  }
 }
 /* -------------------- 768 ------------------- */
 @media screen and (min-width: 768px) {
@@ -161,8 +167,10 @@
     text-align: center;
   }
   .feedback-btn :hover {
-    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    box-shadow:
+      0 1px 2px 0 rgba(6, 3, 7, 0.05),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(6, 3, 7, 0.15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
       inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     background: #764191;
@@ -205,4 +213,7 @@
 .custom-arrow:hover .feedback-icon {
   fill: var(--color-scheme-1-foreground);
   stroke: var(--color-scheme-1-foreground);
+}
+.custom-arrow {
+  visibility: visible;
 }
