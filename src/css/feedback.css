@@ -4,7 +4,7 @@
   color: #fff;
   padding: 60px 0;
 }
-/* Прихований заголовок для секції */
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -102,12 +102,12 @@
   height: 250px;
 }
 
-/* Приховуємо стрілочки на мобільних та планшетах */
+
 .custom-arrow {
   display: none !important;
 }
 
-/* -------------------- 768 ------------------- */
+
 @media screen and (min-width: 768px) {
   .feedback {
     text-align: center;
@@ -119,7 +119,7 @@
     margin-right: auto;
   }
 
-  /* Залишаємо приховані на планшеті */
+ 
   .custom-arrow {
     display: none !important;
   }
@@ -140,7 +140,7 @@
     text-align: center;
   }
 }
-/* ------------------- 1440 ---------------- */
+
 @media screen and (min-width: 1440px) {
   .feedback {
     text-align: center;
