@@ -130,8 +130,8 @@ function handleArtistCardClick(event) {
 const loader = document.querySelector('.loader');
 function toggleLoader(show) {
   if (show) {
-    loader.style.display = 'inline-block';
+    loader.classList.remove('visually-hidden');
   } else {
-    loader.style.display = 'none';
+    loader.classList.add('visually-hidden');
   }
 }
