@@ -1,6 +1,8 @@
 # artistsHUB
 
-![Preview](./preview.webp)
+<p align="center">
+  <img src="public/img/preview/preview.webp" alt="Project Preview" width="1400">
+</p>
 
 ---
 

@@ -321,7 +321,6 @@
   pointer-events: none;
 }
 
-/* Лоадер Load more */
 .loader::after {
   content: '';
   box-sizing: border-box;
